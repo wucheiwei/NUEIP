@@ -1,0 +1,35 @@
+<p>
+  &nbsp &nbsp
+  先以生物學分類來說，按生物學來分累有界、門、綱、目、科、屬、種這七種分類方式，越往上則涵蓋越廣也越是抽象。而往下的分類會繼承上一層分類的特性，比如靈長類有五指對握的功能那他往下的生物如人類或者猩猩同樣也會有五指對握的功能。
+  物件導向中的繼承也是類似於前述的方式，首先會有一個上層的類別，然後下層的實體則會繼承上層所擁有的方法並能使用，但在同樣的層級的實體之間所擁有的方法不見得相同，比如汽車與機車都屬於動力機械工具那他們一定都有馬達，但汽車有四個輪子機車卻只有兩個輪子。
+</p>
+<p>&nbsp &nbsp 介面則是定義實體的規格需要按照類別所規定的規格去建立。</p>
+<p>
+  以ruby語法來說：我可以定義一個類別<br />
+  class Vehicle <br />
+  &nbsp &nbsp def motor <br />
+  &nbsp &nbsp &nbsp &nbsp puts "我有馬達"<br />
+  &nbsp &nbsp end <br />
+  end <br /><br />
+  在定義兩個實體分別為汽車跟機車並讓他們繼承自Vehicle<br /><br />
+  class Car < Vehicle <br />
+  &nbsp &nbsp def four_wheel<br />
+  &nbsp &nbsp &nbsp &nbsp puts "我有四個輪子"<br />
+  &nbsp &nbsp end <br />
+  end <br /><br />
+  class Motorcycle < Vehicle <br />
+  &nbsp &nbsp def two_wheel<br />
+  &nbsp &nbsp &nbsp &nbsp puts "我有兩個輪子"<br />
+  &nbsp &nbsp end <br />
+  end <br />
+</p>
+<p>
+  由上述的程式碼當中我們即可以用new方法分別製作兩個實體<br />
+  kymco=Motorcycle.new <br />
+  toyota=Car.new <br />
+  則Kymco與Toyota同樣都會有motor的方法但各自擁有的two_wheel與four_wheel卻不能互相使用，即<br />
+  kymco.motor會輸出:我有馬達<br />
+  toyota.motor會輸出：我有馬達<br />
+  kymco.two_wheel會輸出：我有兩個輪子 <br />
+  但kymco.two_wheel則會得到 undefined method的錯誤訊息。
+</p>
